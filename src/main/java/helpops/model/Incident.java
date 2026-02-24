@@ -23,6 +23,7 @@ public class Incident implements Serializable {
         this.dateCreation = new Date();
     }
 
+    // Getter sur tout les attributs
     public int    getId()          { return id; }
 
     public String getCategorie()   { return categorie; }
@@ -40,7 +41,7 @@ public class Incident implements Serializable {
     public void setStatut(String statut) { this.statut = statut; } // pour changer le statut de l'incident plus tard lors de la V2
 
     @Override
-    public String toString() {  // formatage affichage incident
+    public String toString() {  // Affichage des incidents
         return String.format("[#%d] %s | %s | %s | %s | %s",
             id, titre, categorie, statut, login, dateCreation);
     }
