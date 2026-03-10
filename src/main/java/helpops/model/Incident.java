@@ -2,47 +2,56 @@ package helpops.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 public class Incident implements Serializable {
-    private static final long serialVersionUID = 1L;  // serial RMI
-    private int    id;
+    private static final long serialVersionUID = 1L;
+
+    private int id;
+    private UUID userUuid;
     private String categorie;
     private String titre;
     private String description;
     private String statut;
-    private String login;
-    private Date   dateCreation;
+    private UUID agentUuid;
+    private Date dateCreation;
+    private Date dateAssignation; // Nouveau pour la V2
 
-    public Incident(int id, String categorie, String titre, String description, String login) {  // constructeur
+    public Incident(int id, UUID userUuid, String categorie, String titre, String description) {
         this.id = id;
+        this.userUuid = userUuid;
         this.categorie = categorie;
         this.titre = titre;
         this.description = description;
-        this.login = login;
-        this.statut = "OUVERT"; // statut initial pour l'instant car pas besoin de plus pour la V1
+        this.statut = "OPEN";
         this.dateCreation = new Date();
     }
 
-    // Getter sur tout les attributs
-    public int    getId()          { return id; }
+    // Getters
+    public int getId()              { return id; }
+    public UUID getUserUuid()       { return userUuid; }
+    public String getCategorie()    { return categorie; }
+    public String getTitre()        { return titre; }
+    public String getDescription()  { return description; }
+    public String getStatut()       { return statut; }
+    public UUID getAgentUuid()      { return agentUuid; }
+    public Date getDateCreation()   { return dateCreation; }
+    public Date getDateAssignation(){ return dateAssignation; }
 
-    public String getCategorie()   { return categorie; }
+    // --- SETTERS ---
 
-    public String getTitre()       { return titre; }
+    public void setStatut(String statut) { this.statut = statut; }
 
-    public String getDescription() { return description; }
+    public void setAgentUuid(UUID agentUuid) { this.agentUuid = agentUuid; }
 
-    public String getStatut()      { return statut; }
+    public void setDateCreation(Date dateCreation) { this.dateCreation = dateCreation; }
 
-    public String getLogin()       { return login; }
-
-    public Date   getDateCreation(){ return dateCreation; }
-
-    public void setStatut(String statut) { this.statut = statut; } // pour changer le statut de l'incident plus tard lors de la V2
+    public void setDateAssignation(Date dateAssignation) { this.dateAssignation = dateAssignation; }
 
     @Override
-    public String toString() {  // Affichage des incidents
-        return String.format("[#%d] %s | %s | %s | %s | %s",
-            id, titre, categorie, statut, login, dateCreation);
+    public String toString() {
+        String agentInfo = (agentUuid != null) ? agentUuid.toString() : "Non assigné";
+        return String.format("[#%d] %s | %s | Statut: %s | Créé par: %s | Agent: %s",
+                id, titre, categorie, statut, userUuid, agentInfo);
     }
 }
