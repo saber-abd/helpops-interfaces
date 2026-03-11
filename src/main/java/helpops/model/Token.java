@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Objet de session circulant entre le client et les serveurs.
- * Contient les privilèges de l'utilisateur et expire après 1 heure.
- */
 public class Token implements Serializable {
     private static final long serialVersionUID = 1L;
 

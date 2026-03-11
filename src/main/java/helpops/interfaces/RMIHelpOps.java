@@ -5,11 +5,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-/**
- * Interface RMI pour la gestion des incidents .
- * Définit les actions disponibles pour les Utilisateurs et les Agents.
- * Toutes les méthodes requièrent un tokenValeur pour valider l'identité et les droits.
- */
+// Interface RMI pour la gestion des incidents
 public interface RMIHelpOps extends Remote {
     Incident signalerIncident(String tokenValeur, String categorie, String titre, String description)
         throws RemoteException;

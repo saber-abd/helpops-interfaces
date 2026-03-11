@@ -5,10 +5,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.UUID;
 
-/**
- * Contrat RMI : Service d'Authentification .
- * Gère le cycle de vie des utilisateurs, la validation des accès et le contrôle des rôles.
- */
+// Contrat RMI : Service d'Authentification .
 public interface RMIAuthService extends Remote {  //interface RMI pour authentification
     Token connecter(String login, String motDePasse) throws RemoteException;  // retourne le token si reussi sinon null
     boolean inscrire(String login, String motDePasse) throws RemoteException; // retourne true ou false selon le resultat, en cas de reusitte connecte directement l'utilisateur

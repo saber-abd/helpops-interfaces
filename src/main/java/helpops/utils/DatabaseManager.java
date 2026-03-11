@@ -12,9 +12,7 @@ public class DatabaseManager {
 
     private static Connection connection = null;
 
-    /**
-     * Retourne une connexion unique à la base de données
-     */
+    // Retourne une connexion unique à la base de données
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             try {
@@ -29,9 +27,7 @@ public class DatabaseManager {
         return connection;
     }
 
-    /**
-     * Fermeture de la connexion
-     */
+    //Fermeture de la connexion
     public static void closeConnection() {
         if (connection != null) {
             try {

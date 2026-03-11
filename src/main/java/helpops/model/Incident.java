@@ -4,10 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Modèle de données représentant un incident dans le système.
- * Sérialisable pour permettre le transfert via RMI.
- */
 public class Incident implements Serializable {
     private static final long serialVersionUID = 1L;
 
