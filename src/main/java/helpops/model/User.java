@@ -17,7 +17,7 @@ public class User implements Serializable {
         this.motDePasseHash = motDePasseHash;
         this.role = role;}
 
-    // Getters
+    // getters
     public UUID getUserUuid()         { return userUuid; }
 
     public String getLogin()          { return login; }

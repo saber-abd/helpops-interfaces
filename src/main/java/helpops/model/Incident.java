@@ -15,7 +15,9 @@ public class Incident implements Serializable {
     private String statut;
     private UUID agentUuid;
     private Date dateCreation;
-    private Date dateAssignation; // Nouveau pour la V2
+    private Date dateAssignation;
+    private Date dateResolution;       // v3
+    private String messageResolution;  // v3
 
     public Incident(int id, UUID userUuid, String categorie, String titre, String description) {
         this.id = id;
@@ -27,31 +29,31 @@ public class Incident implements Serializable {
         this.dateCreation = new Date();
     }
 
-    // Getters
-    public int getId()              { return id; }
-    public UUID getUserUuid()       { return userUuid; }
-    public String getCategorie()    { return categorie; }
-    public String getTitre()        { return titre; }
-    public String getDescription()  { return description; }
-    public String getStatut()       { return statut; }
-    public UUID getAgentUuid()      { return agentUuid; }
-    public Date getDateCreation()   { return dateCreation; }
-    public Date getDateAssignation(){ return dateAssignation; }
+    // getters
+    public int getId()                    { return id; }
+    public UUID getUserUuid()             { return userUuid; }
+    public String getCategorie()          { return categorie; }
+    public String getTitre()              { return titre; }
+    public String getDescription()        { return description; }
+    public String getStatut()             { return statut; }
+    public UUID getAgentUuid()            { return agentUuid; }
+    public Date getDateCreation()         { return dateCreation; }
+    public Date getDateAssignation()      { return dateAssignation; }
+    public Date getDateResolution()       { return dateResolution; }
+    public String getMessageResolution()  { return messageResolution; }
 
-    // --- SETTERS ---
-
-    public void setStatut(String statut) { this.statut = statut; }
-
-    public void setAgentUuid(UUID agentUuid) { this.agentUuid = agentUuid; }
-
-    public void setDateCreation(Date dateCreation) { this.dateCreation = dateCreation; }
-
-    public void setDateAssignation(Date dateAssignation) { this.dateAssignation = dateAssignation; }
+    // setters
+    public void setStatut(String statut)                    { this.statut = statut; }
+    public void setAgentUuid(UUID agentUuid)                { this.agentUuid = agentUuid; }
+    public void setDateCreation(Date dateCreation)          { this.dateCreation = dateCreation; }
+    public void setDateAssignation(Date dateAssignation)    { this.dateAssignation = dateAssignation; }
+    public void setDateResolution(Date dateResolution)      { this.dateResolution = dateResolution; }
+    public void setMessageResolution(String msg)            { this.messageResolution = msg; }
 
     @Override
     public String toString() {
-        String agentInfo = (agentUuid != null) ? agentUuid.toString() : "Non assigné";
-        return String.format("[#%d] %s | %s | Statut: %s | Créé par: %s | Agent: %s",
+        String agentInfo = (agentUuid != null) ? agentUuid.toString() : "Non assigne";
+        return String.format("[#%d] %s | %s | Statut: %s | Cree par: %s | Agent: %s",
                 id, titre, categorie, statut, userUuid, agentInfo);
     }
 }

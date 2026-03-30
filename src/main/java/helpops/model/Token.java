@@ -13,8 +13,7 @@ public class Token implements Serializable {
     private String role;
     private Date expiration;
 
-    // Constructeur complet pour la V2
-    // Dans Token.java
+    // constructeur complet pour la V2
     public Token(String valeur, String login, UUID userUuid, String role) {
         this.valeur = valeur;
         this.login = login;
@@ -26,7 +25,7 @@ public class Token implements Serializable {
         return new Date().before(expiration);
     }
 
-    // Getters
+    // getters
     public String getValeur()   { return valeur; }
     public String getLogin()    { return login; }
     public UUID getUserUuid()   { return userUuid; }
