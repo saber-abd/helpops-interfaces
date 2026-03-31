@@ -25,4 +25,8 @@ public interface RMIHelpOps extends Remote {
     // v3 statistiques fonctionnement
     Statistiques getStatistiques(String tokenValeur) throws RemoteException;
     String ping() throws RemoteException;
+
+    //V3 supervision
+    void sAbonner(String tokenValeur, RMISupervisionClient client) throws RemoteException;
+    void seDesabonner(String tokenValeur, RMISupervisionClient client) throws RemoteException;
 }
