@@ -14,6 +14,7 @@ public interface RMIAuthService extends Remote {
     boolean verifierToken(String tokenValeur) throws RemoteException;
 
     UUID getUuidDepuisToken(String tokenValeur) throws RemoteException;
+
     // v3 recupere l'UUID d'un utilisateur par son login (pour creation ticket par agent)
     UUID getUuidDepuisLogin(String login) throws RemoteException;
     String ping() throws RemoteException;
