@@ -44,7 +44,7 @@ public class Statistiques implements Serializable {
         sb.append(String.format("Tickets resolus           : %d%n", ticketsResolus));
         sb.append("Tickets par etat          :\n");
         ticketsParEtat.forEach((e, c) -> sb.append(String.format("  %-10s : %d%n", e, c)));
-        sb.append(String.format("Temps moyen de resolution : %.1f heures%n", tempsMoyenResolutionHeures));
+        sb.append(String.format("Temps moyen de resolution : %.1f secondes%n", tempsMoyenResolutionHeures));
         sb.append("Tickets par agent         :\n");
         if (ticketsParAgent.isEmpty()) {
             sb.append("  (aucun agent actif)\n");
